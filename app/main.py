@@ -5,7 +5,7 @@ from routes.employees import employees
 from routes.departments import departments
 from config_db import db
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 
 app.config.from_object('config')
@@ -18,8 +18,3 @@ app.register_blueprint(employees, url_prefix='/employees')
 @app.route('/', methods=['GET'])
 def home():
     return redirect('/departments')
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
