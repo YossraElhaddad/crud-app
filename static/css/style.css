@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    margin: 10px;
+}
+
+table {
+    table-layout: fixed;
+    margin: 8px;
+    width: 60%;
+    border-collapse: collapse;
+    border: 1px solid rgb(48, 48, 48)
+}
+
+tr,
+th,
+td {
+    border: 1px solid rgb(48, 48, 48);
+    padding: 5px;
+}
+
+.form {
+    margin-top: 30px;
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+    justify-content: flex-start;
+}
+
+caption {
+    margin-bottom: 5px;
+    color: rgb(48, 48, 48);
+    font-style: italic;
+}
+
+input,
+select {
+    width: 250px;
+    margin: 2px;
+    padding: 2px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    background-color: white;
+    text-align: center;
+}
+
+select {
+    text-align: center;
+    cursor: pointer;
+}
+
+option {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 3px;
+}
+
+button {
+    width: 140px;
+    height: 50px;
+    font-size: 16px;
+    padding: 3px;
+    margin: 3px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background-color: green;
+    border: none;
+}
+
+.show-employees {
+    background-color: blue;
+}
+
+.delete-link {
+    background-color: red;
+}
+
+.update-link {
+    background-color: orange;
+}
+
+.go-back,
+.all-employees {
+    margin-top: 8px;
+    color: rgb(48, 48, 48);
+    text-decoration: underline;
+}

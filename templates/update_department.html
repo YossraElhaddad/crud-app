@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block head %}
+<title>Crud Task</title>
+{% endblock %} {% block body %}
+
+<table>
+    <caption>Departments</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>{{ department['id'] }}</td>
+            <td>{{ department['name'] }}</td>
+
+        </tr>
+    </tbody>
+</table>
+
+<div class="form">
+
+    <form action="update/{{department['id']}}" method="POST">
+
+        <label for="dept_name">Name</label><br>
+        <input type="text" name="dept_name" id="dept_name" value="{{department['name']}}"><br><br>
+
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+
+{% endblock %}

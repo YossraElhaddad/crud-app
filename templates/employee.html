@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block head %}
+<title>Crud Task</title>
+{% endblock %} {% block body %}
+<h1>CRUD Task</h1>
+
+<table>
+    <caption>Records of the Employees</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Salary</th>
+            <th>Years of Experience</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for record in records %}
+
+
+        <tr>
+            <td>{{ record['id'] }}</td>
+            <td>{{ record['name'] }}</td>
+            <td>{{ record['title'] }}</td>
+            <td>{{ record['salary'] }}</td>
+            <td>{{ record['years_of_experience'] }}</td>
+
+            {% if department %}
+            <td>{{ department['name'] }}</td>
+            {% else %} {% set dept = Department.query.get_or_404(record['dept_id']) -%}
+            <td>{{ dept.name }}</td>
+            {% endif %}
+
+            <td class="links">
+                <a class="delete-link" href="/employees/delete/{{record['id']}}">Delete</a>
+                <a class="update-link" href="/employees/{{record['id']}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="form">
+
+    <form action="/employees/new" method="POST">
+
+        <label for="name">Name</label><br>
+        <input type="text" name="name" id="name"><br><br>
+
+        <label for="title">Title</label><br>
+        <select name="title" id="title">
+            {% for title in titles %}
+                <option value="{{title[0]}}">{{ title[0] }}</option>
+            {% endfor %}    
+        </select><br><br>
+
+
+        <label for="dept_name">Department</label><br>
+        <select name="dept_name" id="dept_name">
+            {% if departments %}
+            {% for department in departments %}
+                <option value="{{ department['name'] }}">{{ department['name'] }}</option>
+            {% endfor %}
+
+            {% else %}
+            <option value="{{ department['name'] }}">{{ department['name'] }}</option>
+            {% endif%}
+        </select><br><br>
+
+        <label for="years_of_experience">Years of Experience</label><br>
+        <input type="number" name="years_of_experience" id="years_of_experience"> <br><br>
+
+
+        <button type="submit">Add Employee</button>
+    </form>
+</div>
+<a class="go-back" href="/">Go back to departments</a> {% endblock %}

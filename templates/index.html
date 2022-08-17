@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block head %}
+<title>Crud Task</title>
+{% endblock %} {% block body %}
+<h1>CRUD Task</h1>
+
+<table>
+    <caption>Departments</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for record in records %}
+
+
+        <tr>
+            <td>{{ record['id'] }}</td>
+            <td>{{ record['name'] }}</td>
+            <td><a class="show-employees" href="{{record['id']}}/employees">Show Employees</a></td>
+
+            <td class="links">
+                <a class="delete-link" href="delete/{{record['id']}}">Delete</a>
+                <a class="update-link" href="{{record['id']}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="form">
+
+    <form action="new" method="POST">
+
+        <label for="dept_name">Name</label><br>
+        <input type="text" name="dept_name" id="dept_name"><br><br>
+
+
+        <button type="submit">Add Department</button>
+    </form>
+</div>
+<a class="all-employees" href="/employees">View all Employees</a> {% endblock %}
