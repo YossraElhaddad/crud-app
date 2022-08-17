@@ -8,7 +8,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 DEBUG = True
 
 # Connect to the database
-SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost:5432/testdb'
+SQLALCHEMY_DATABASE_URI = 'postgresql-amorphous-54093'
 
 # Turn off the Flask-SQLAlchemy event system and warning
 SQLALCHEMY_TRACK_MODIFICATIONS = False
