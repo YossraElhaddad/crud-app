@@ -1,8 +1,16 @@
 # crud-app
 
+The app automatically loads the departments (master) which consists of employees (details).
+
+When a department is deleted, all employees who work at that department are deleted.
+
+When adding an employee, it is only allowed to add the department (which the employee works at) from the list of departments database.
+Same goes for adding title, since there are only specific titles.
+
+
 ## Database design
 
-### PSQL queries
+### PSQL queries (inital data)
 
 ```
 CREATE TABLE Departments(
